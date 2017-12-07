@@ -7,7 +7,12 @@ import {bindActionCreators} from 'redux';
 import TweetModList from './TweetList';
 import TweetModFooter from './TwitterModuleFooter';
 
-class MainPage extends React.Component {
+// Material UI imports
+import Paper from 'material-ui/Paper';
+import AppBar from 'material-ui/AppBar';
+
+
+class TwitterModule extends React.Component {
     constructor(props, context) {
         super(props, context);
 
@@ -22,24 +27,27 @@ class MainPage extends React.Component {
         return (
             <div className="row">
                 <div className="col-md-4">
-                    <div className="wrapper">
-                        <div className="head">
-                            <i className="fa fa-twitter"></i><h3>Tweetbox</h3>
-                        </div>
-                        <ul className="tweets">
+                    <Paper zDepth={3}>
+                        <AppBar
+                            iconClassNameLeft="fa fa-twitter"
+                            title="TweetBox"
+                            style={{
+                                background: 'linear-gradient(45deg, #4FC3F7 30%, #4DD0E1 90%)'
+                            }}/>
+                        <ul>
                             {tweets.map(tweet =>
                                 <TweetModList key={tweet.id} tweet={tweet}/>                    
                             )}
                         </ul>
                         <TweetModFooter/>
-                    </div>
+                    </Paper>
                 </div>
             </div>
         );
     }
 }
 
-MainPage.propTypes = {
+TwitterModule.propTypes = {
     tweets: PropTypes.array.isRequired
 };
 
@@ -49,4 +57,4 @@ function mapStateToProps(state, ownProps) {
     };
 }
 
-export default connect(mapStateToProps)(MainPage);
+export default connect(mapStateToProps)(TwitterModule);
