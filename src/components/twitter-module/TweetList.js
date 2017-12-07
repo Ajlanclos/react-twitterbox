@@ -1,5 +1,5 @@
-import React, {PropTypes} from 'react';
-
+import React from 'react';
+import PropTypes from 'prop-types';
 // Custom imports
 
 // Material UI imports
@@ -7,6 +7,9 @@ import Avatar from 'material-ui/Avatar';
 import List from 'material-ui/List';
 import ListItem from 'material-ui/List/ListItem';
 
+const listStyle = {
+    "border-bottom": "1px solid #EBEBEB"
+};
 
 const TweetList = ({tweet}) => {
    
@@ -21,7 +24,7 @@ const TweetList = ({tweet}) => {
     let prettyTime = hour + ":" + minute;    
 
     return (
-        <List>
+        <List style={listStyle}>
             <ListItem 
                 value={1}
                 leftAvatar={<Avatar src="http://www.freeiconspng.com/uploads/twitter-icon-alt-twitter-icon-15.png"/>} 

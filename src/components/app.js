@@ -1,5 +1,6 @@
-import React, {PropTypes} from 'react';
-// import Header from './common/Header';
+import React from 'react';
+import PropTypes from 'prop-types';
+
 
 class App extends React.Component {
     render() {
